@@ -53,3 +53,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'carrierwave', :github => 'carrierwaveuploader/carrierwave'
 gem 'simple_form'
+gem 'pg'
