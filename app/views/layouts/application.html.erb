@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Satelite</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+
+</head>
+
+<body>
+<%= yield %>
+<% if flash.present? %>
+    <script type="text/javascript">
+      <% flash.each do |f| %>
+      $.notify("<%= f[1] %>", "<%= f[0] %>");
+      <% end %>
+    </script>
+<% end %>
+<%= javascript_include_tag 'application' %>
+</body>
+</html>

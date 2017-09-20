@@ -1,0 +1,17 @@
+home #index
+<p></p>
+<%= @value %>
+<p></p>
+<% if @not_exist_file %>
+    <%= "#{@not_exist_file}" %> not found
+<% else %>
+    <%= result = eval(@result) %>
+    <h2>循环</h2>
+    <% @image_paths.each do |i| %>
+        <img src="<%= i %>" alt="<%= i %>">
+
+        <p><%= result[:"#{i}"] %></p>
+    <% end %>
+
+<% end %>
+

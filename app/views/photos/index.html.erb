@@ -1,0 +1,23 @@
+<h3>上传图片</h3>
+
+<%= simple_form_for(@photo, url: photos_path, method: :post) do |f| %>
+    <div id="preview-image" class="hide"></div>
+    <div class="form-group">
+      <label class="text required control-label" for="photo_name">
+      </label>
+      <%= f.file_field :name, id: 'upload-file-input' %>
+      <p class="help-block">格式：jpg jpeg png</p>
+
+      <div class="form-actions">
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>
+
+<% result = params[:result] %>
+<% if result %>
+    <% result = eval(result) %>
+    <% image_path = result.keys[0].to_s %>
+    <p><img src="<%= image_path.gsub('public', '') %>" alt="" width="400" height="300"></p>
+    <h2><%= result[:"#{image_path}"] %></h2>
+<% end %>

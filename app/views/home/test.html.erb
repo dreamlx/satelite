@@ -1,0 +1,7 @@
+<%= result = eval(@result) %>
+<h2>循环</h2>
+<% @image_paths.each do |i| %>
+    <img src="<%= i %>" alt="<%= i %>">
+    <p><%= result[:"#{i}"] %></p>
+<% end %>
+
