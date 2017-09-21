@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
         redirect_to photos_path
       else
         flash[:notice] = '上传成功'
-        @image_paths = ['public'+image.name_url]
+        @image_paths = ['../../../public'+image.name_url]
         ensure_file_exist = true
         if ensure_file_exist
           @result = `python lib/assets/satelite/retrain_model_classifier.py #{@image_paths.join(',')}`
