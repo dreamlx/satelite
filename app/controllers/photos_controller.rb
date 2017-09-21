@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
         redirect_to photos_path
       else
         flash[:notice] = '上传成功'
-        @image_paths = ['public'+image.name_url]
+        @image_paths = ['../../../public'+image.name_url]
         ensure_file_exist = true
         @image_paths.each do |image_path|
           unless File.exist?(image_path)
