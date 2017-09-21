@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require views
 //= require notify
-//= require turbolinks
+//=// require turbolinks
 //= require_tree .
