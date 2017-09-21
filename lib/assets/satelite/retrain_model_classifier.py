@@ -11,10 +11,10 @@ from PIL import Image
 
 # Loads label file, strips off carriage return
 label_lines = [line.rstrip() for line
-               in tf.gfile.GFile("./output_dir/satellite_labels.txt")]
+               in tf.gfile.GFile("lib/assets/satelite/output_dir/satellite_labels.txt")]
 
 # Unpersists graph from file
-with tf.gfile.FastGFile("./output_dir/satellite_graph.pb", 'rb') as f:
+with tf.gfile.FastGFile("lib/assets/satelite/output_dir/satellite_graph.pb", 'rb') as f:
     graph_def = tf.GraphDef()
     graph_def.ParseFromString(f.read())
     _ = tf.import_graph_def(graph_def, name='')
