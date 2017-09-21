@@ -15,9 +15,14 @@
 <% end %>
 
 <% result = params[:result] %>
-<% if result %>
+<% if result.present? %>
     <% result = eval(result) %>
-    <% image_path = result.keys[0].to_s %>
-    <p><img src="<%= image_path.gsub('public', '') %>" alt="" width="400" height="300"></p>
-    <h2><%= result[:"#{image_path}"] %></h2>
+    <% if result.is_a?(Hash) %>
+        <% image_path = result.keys[0].to_s %>
+        <p><img src="<%= image_path.gsub('public', '') %>" alt="image" width="400" height="300"></p>
+        <h2><%= result[:"#{image_path}"] %></h2>
+    <% else %>
+        <p><%= result.class %></p>
+        <%= result %>
+    <% end %>
 <% end %>
