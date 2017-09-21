@@ -9,7 +9,14 @@
 </head>
 
 <body>
-<%= yield %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="container">
+      <%= yield %>
+    </div>
+  </div>
+</div>
 <%= javascript_include_tag 'application' %>
 <% if flash.present? %>
     <script type="text/javascript">
