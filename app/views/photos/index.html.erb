@@ -1,4 +1,5 @@
-<h3>上传图片</h3>
+<h3>此模型可识别：</h3>
+<h4>'agricultural', 'airplane', 'baseballdiamond', 'beach', 'buildings', 'chaparral', 'denseresidential', 'forest', 'freeway', 'golfcourse', 'harbor', 'intersection', 'mediumresidential', 'mobilehomepark', 'overpass', 'parkinglot', 'river', 'runway', 'sparseresidential', 'storagetanks', 'tenniscourt'</h4>
 
 <%= simple_form_for(@photo, url: photos_path, method: :post) do |f| %>
     <div id="preview-image" class="hide"></div>
@@ -9,7 +10,7 @@
       <p class="help-block">格式：jpg jpeg png</p>
 
       <div class="form-actions">
-        <%= f.button :submit, class: 'btn btn-primary' %>
+        <%= f.button :submit, class: 'btn btn-primary',value:'上传并识别' %>
       </div>
     </div>
 <% end %>
