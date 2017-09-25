@@ -1,6 +1,7 @@
 <h3>此模型可识别：</h3>
-<h4>'agricultural', 'airplane', 'baseballdiamond', 'beach', 'buildings', 'chaparral', 'denseresidential', 'forest', 'freeway', 'golfcourse', 'harbor', 'intersection', 'mediumresidential', 'mobilehomepark', 'overpass', 'parkinglot', 'river', 'runway', 'sparseresidential', 'storagetanks', 'tenniscourt'</h4>
-
+<h4>'agricultural', 'airplane', 'baseballdiamond', 'beach', 'buildings', 'chaparral', 'denseresidential', 'forest',
+  'freeway', 'golfcourse', 'harbor', 'intersection', 'mediumresidential', 'mobilehomepark', 'overpass', 'parkinglot',
+  'river', 'runway', 'sparseresidential', 'storagetanks', 'tenniscourt'</h4>
 <%= simple_form_for(@photo, url: photos_path, method: :post) do |f| %>
     <div id="preview-image" class="hide"></div>
     <div class="form-group">
@@ -10,7 +11,7 @@
       <p class="help-block">格式：jpg jpeg png</p>
 
       <div class="form-actions">
-        <%= f.button :submit, class: 'btn btn-primary',value:'上传并识别' %>
+        <%= f.button :submit, class: 'btn btn-primary', value: '上传并识别' %>
       </div>
     </div>
 <% end %>
@@ -19,9 +20,10 @@
 <% if result.present? %>
     <% result = eval(result) %>
     <% if result.is_a?(Hash) %>
-        <% image_path = result.keys[0].to_s %>
-        <p><img src="<%= image_path.gsub('public', '') %>" alt="image" width="400" height="300"></p>
-        <h2><%= result[:"#{image_path}"] %></h2>
+        <% image_path = params[:image_path] %>
+        <p><img src="<%= image_path.gsub("#{params[:root_path]}/public", '') %>" alt="image" width="400" height="300">
+        </p>
+        <h2><%= result[:out] %></h2>
     <% else %>
         <p><%= result.class %></p>
         <%= result %>
