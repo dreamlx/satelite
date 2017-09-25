@@ -23,7 +23,7 @@
         <% image_path = params[:image_path] %>
         <p><img src="<%= image_path.gsub("#{params[:root_path]}/public", '') %>" alt="image" width="400" height="300">
         </p>
-        <h2><%= result %></h2>
+        <h2><%= result[:out] %></h2>
     <% else %>
         <p><%= result.class %></p>
         <%= result %>
