@@ -18,6 +18,32 @@ $(function () {
             document.getElementById("preview-image").innerHTML = '<img src="' + dataURL + '"  width="320" height="240">';
         });
     }
+
+
+    $('.upload-photo').click(function (event) {
+        event.preventDefault();
+        var form = $("#new_photo");
+        if (window.FormData !== undefined) {
+            var postData = new FormData(form[0]);
+            $.ajax({
+                // url: form.attr('action'),
+                url:'/photos',
+                type: "POST",
+                dataType: "json",
+                data: postData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        } else {
+            form.submit();
+        }
+    });
 });
 function check_file_type(obj, limit_type, file_type) {
     if ($.inArray(file_type, limit_type) == -1) {

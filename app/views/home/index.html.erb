@@ -1,3 +1,18 @@
 Home
 <p><%= @python_version %></p>
 <%= link_to '图片识别', photos_path %>
+
+
+<%= simple_form_for(Photo.new, method: :post) do |f| %>
+    <div id="preview-image" class="hide"></div>
+    <div class="form-group">
+      <label class="text required control-label" for="photo_name">
+      </label>
+      <%= f.file_field :name, id: 'upload-file-input' %>
+      <p class="help-block">格式：jpg jpeg png</p>
+
+      <div class="form-actions">
+        <%= f.button :submit, class: 'btn btn-primary upload-photo', value: '上传并识别', 'data-disable-with': "loading" %>
+      </div>
+    </div>
+<% end %>
