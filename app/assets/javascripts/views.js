@@ -22,12 +22,13 @@ $(function () {
 
     $('.upload-photo').click(function (event) {
         event.preventDefault();
+        document.getElementById('upload-photo-submit').innerHTML = 'loading';
         var form = $("#new_photo");
         if (window.FormData !== undefined) {
             var postData = new FormData(form[0]);
             $.ajax({
                 // url: form.attr('action'),
-                url:'/photos',
+                url: '/photos',
                 type: "POST",
                 dataType: "json",
                 data: postData,
@@ -35,6 +36,7 @@ $(function () {
                 contentType: false,
                 success: function (data) {
                     console.log(data);
+                    document.getElementById('upload-photo-submit').innerHTML = '上传并识别';
                 },
                 error: function (data) {
                     console.log(data);

@@ -12,7 +12,9 @@ Home
       <p class="help-block">格式：jpg jpeg png</p>
 
       <div class="form-actions">
-        <%= f.button :submit, class: 'btn btn-primary upload-photo', value: '上传并识别', 'data-disable-with': "loading" %>
+        <button class="upload-photo btn btn-primary" id="upload-photo-submit" type="submit">
+          上传并识别
+        </button>
       </div>
     </div>
 <% end %>
